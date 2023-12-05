@@ -16,7 +16,7 @@ public class SensorBoard extends CougarSubsystem{
         encoder = new Encoder(0, 1);
       }
     public void periodic() {
-        SmartDashboard.putBoolean("ma3", limitSwitch.get());
+        SmartDashboard.putBoolean("limitSwitch", limitSwitch.get());
         SmartDashboard.putData(encoder);
     }
     
