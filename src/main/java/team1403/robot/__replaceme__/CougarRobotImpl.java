@@ -1,15 +1,15 @@
 package team1403.robot.__replaceme__;
 
-import static edu.wpi.first.wpilibj.XboxController.Button;
-
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-
 import team1403.lib.core.CougarLibInjectedParameters;
 import team1403.lib.core.CougarRobot;
+import team1403.lib.subsystems.sensorBoard.SensorBoard;
 import team1403.lib.util.CougarLogger;
 
 /**
@@ -35,6 +35,8 @@ public class CougarRobotImpl extends CougarRobot {
   public CougarRobotImpl(CougarLibInjectedParameters parameters,
                          RobotConfig config) {
     super(parameters);
+
+    m_sensorBoard = new SensorBoard("ExperimentalSubsystem", parameters);
 
     m_autoCommand = new InstantCommand(() -> {
       CougarLogger.getAlwaysOn().errorf("AutoCommand was never set");
@@ -90,4 +92,5 @@ public class CougarRobotImpl extends CougarRobot {
   }
 
   private final Command m_autoCommand;
+  private final Subsystem m_sensorBoard;
 }
